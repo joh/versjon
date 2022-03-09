@@ -48,9 +48,9 @@
     }
 
     p.versjon-old-warning {
-        margin: 10px 0;
+        margin: 0;
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: 0;
 
         letter-spacing: 1px;
         color: #fff;
@@ -70,9 +70,9 @@
     }
 
     p.versjon-dev-warning {
-        margin: 10px 0;
+        margin: 0;
         padding: 5px 10px;
-        border-radius: 4px;
+        border-radius: 0;
 
         letter-spacing: 1px;
         color: #fff;
@@ -90,6 +90,11 @@
         color: #fff;
         border-color: #fff;
     }
+{% if stable and stable.name != current  %}
+    .fixed-top, .wy-nav-side {
+        margin-top: 2.13em;
+    }
+{% endif %}
 </style>
 <link rel="stylesheet" type="text/css"
     href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
