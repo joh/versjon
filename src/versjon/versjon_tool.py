@@ -10,11 +10,13 @@ import pickle
 import sphobjinv
 import bs4
 import functools
-
-import semantic_version as semver
+from packaging import version as pkgver
 
 from . import template_render
 
+def validate_version(version):
+    v = pkgver.parse(version)
+    return isinstance(v, pkgver.Version)
 
 def current_version(build_dir):
     """Return the current version of an objects.inv file"""
@@ -78,7 +80,7 @@ def create_general_context(docs_dir, builds):
 
         version = {"name": version_name, "html_files": sorted(html_files)}
 
-        if semver.validate(version_name):
+        if validate_version(version_name):
             context["semver"].append(version)
 
         else:
@@ -86,7 +88,7 @@ def create_general_context(docs_dir, builds):
 
     # Sort all versions
     context["semver"] = sorted(
-        context["semver"], key=lambda v: semver.Version(v["name"]), reverse=True
+        context["semver"], key=lambda v: pkgver.Version(v["name"]), reverse=True
     )
 
     # Mark current stable release
@@ -137,7 +139,7 @@ def run(docs_path, exclude_pattern, no_index, no_stable_index, user_templates):
         current = current_version(build)
 
         # Build context
-        build_context = {"current": current, "is_semver": semver.validate(current)}
+        build_context = {"current": current, "is_semver": validate_version(current)}
 
         for html_page in build.glob("**/*.html"):
 

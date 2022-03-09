@@ -99,7 +99,7 @@ setup(
     #
     package_data={"versjon": ["templates/*"]},
     install_requires=[
-        "semantic_version",
+        "packaging",
         "click",
         "colorama",
         "sphobjinv",
