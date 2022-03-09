@@ -158,7 +158,7 @@ def run(docs_path, exclude_pattern, no_index, no_stable_index, user_templates):
                 "page_root": page_root,
             }
 
-            print(f"context => {general_context}, {build_context}, {page_context}")
+            #print(f"context => {general_context}, {build_context}, {page_context}")
 
             # Get the HTML to inject
             head_data = inject_render.render(
