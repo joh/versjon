@@ -27,7 +27,7 @@ def current_version(build_dir):
 
     if not inventory.version:
         # Fall back to directory name
-        return str(objects_file.parent)
+        return str(build_dir.name)
 
     return inventory.version
 
