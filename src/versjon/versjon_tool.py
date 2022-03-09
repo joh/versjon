@@ -189,7 +189,7 @@ def run(docs_path, exclude_pattern, no_index, no_stable_index, user_templates):
             head = bs4.BeautifulSoup(head_data, features="html.parser")
             header = bs4.BeautifulSoup(header_data, features="html.parser")
             footer = bs4.BeautifulSoup(footer_data, features="html.parser")
-            page = bs4.BeautifulSoup(html_data, features="html.parser")
+            page = bs4.BeautifulSoup(html_data, features="html5lib")
 
             # Inject the HTML fragments in the .html page
             page.head.append(head)

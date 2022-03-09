@@ -105,5 +105,6 @@ setup(
         "sphobjinv",
         "beautifulsoup4",
         "jinja2",
+        "html5lib",
     ],
 )
