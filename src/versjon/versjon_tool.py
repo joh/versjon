@@ -24,11 +24,8 @@ def current_version(build_dir):
     inventory = sphobjinv.Inventory(objects_file)
 
     if not inventory.version:
-        raise RuntimeError(
-            f"The versjon tool requires a version number "
-            "in the {objects_file.parent}. Add one to conf.py or pass "
-            'it to sphinx build using "-D version=X.Y.Z".'
-        )
+        # Fall back to directory name
+        return str(objects_file.parent)
 
     return inventory.version
 
