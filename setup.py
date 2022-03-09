@@ -104,5 +104,6 @@ setup(
         "colorama",
         "sphobjinv",
         "beautifulsoup4",
+        "jinja2",
     ],
 )
