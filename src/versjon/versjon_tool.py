@@ -13,7 +13,8 @@ from . import template_render
 
 def validate_version(version):
     try:
-        v = pkgver.parse(version)
+        pkgver.parse(version)
+        return True
     except pkgver.InvalidVersion:
         return False
 
