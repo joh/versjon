@@ -2,21 +2,20 @@
 # encoding: utf-8
 
 
-import json
 import fnmatch
 import os
 import pathlib
-import pickle
 import sphobjinv
 import bs4
-import functools
 from packaging import version as pkgver
 
 from . import template_render
 
 def validate_version(version):
-    v = pkgver.parse(version)
-    return isinstance(v, pkgver.Version)
+    try:
+        v = pkgver.parse(version)
+    except pkgver.InvalidVersion:
+        return False
 
 def current_version(build_dir):
     """Return the current version of an objects.inv file"""
